@@ -1,0 +1,88 @@
+   1               		.file	"target.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	jtag_init
+  20               	jtag_init:
+  21               	.LFB6:
+  22               	.LM1:
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0000 E1E6      		ldi r30,lo8(97)
+  27 0002 F0E0      		ldi r31,hi8(97)
+  28 0004 8081      		ld r24,Z
+  29 0006 8064      		ori r24,lo8(64)
+  30 0008 8083      		st Z,r24
+  31               	.LM3:
+  32 000a 8081      		ld r24,Z
+  33 000c 8F74      		andi r24,lo8(79)
+  34 000e 8083      		st Z,r24
+  35               	/* epilogue start */
+  36               	.LM4:
+  37 0010 0895      		ret
+  38               	.LFE6:
+  40               	.global	main
+  42               	main:
+  43               	.LFB7:
+  44               	.LM5:
+  45               	/* prologue: function */
+  46               	/* frame size = 0 */
+  47               	.LBB4:
+  48               	.LBB5:
+  49               	.LM6:
+  50 0012 8091 6100 		lds r24,97
+  51 0016 8064      		ori r24,lo8(64)
+  52 0018 8093 6100 		sts 97,r24
+  53               	.LM7:
+  54 001c 8091 6100 		lds r24,97
+  55 0020 8F74      		andi r24,lo8(79)
+  56 0022 8093 6100 		sts 97,r24
+  57               	.LBE5:
+  58               	.LBE4:
+  59               	.LM8:
+  60 0026 8FEF      		ldi r24,lo8(-1)
+  61 0028 84BB      		out 52-32,r24
+  62               	.LM9:
+  63 002a 8093 6400 		sts 100,r24
+  64               	.LM10:
+  65 002e 8093 6500 		sts 101,r24
+  66               	.LM11:
+  67 0032 85BB      		out 53-32,r24
+  68               	.LM12:
+  69 0034 BF98      		cbi 55-32,7
+  70               	.LM13:
+  71 0036 C79A      		sbi 56-32,7
+  72               	.L7:
+  73               	.LM14:
+  74 0038 B79B      		sbis 54-32,7
+  75 003a 00C0      		rjmp .L4
+  76               	.LM15:
+  77 003c 85BB      		out 53-32,r24
+  78 003e 00C0      		rjmp .L7
+  79               	.L4:
+  80               	.LM16:
+  81 0040 15BA      		out 53-32,__zero_reg__
+  82 0042 00C0      		rjmp .L7
+  83               	.LFE7:
+ 117               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 target.c
+     /tmp/ccWPMhMO.s:2      *ABS*:0000003f __SREG__
+     /tmp/ccWPMhMO.s:3      *ABS*:0000003e __SP_H__
+     /tmp/ccWPMhMO.s:4      *ABS*:0000003d __SP_L__
+     /tmp/ccWPMhMO.s:5      *ABS*:00000034 __CCP__
+     /tmp/ccWPMhMO.s:6      *ABS*:00000000 __tmp_reg__
+     /tmp/ccWPMhMO.s:7      *ABS*:00000001 __zero_reg__
+     /tmp/ccWPMhMO.s:20     .text:00000000 jtag_init
+     /tmp/ccWPMhMO.s:42     .text:00000012 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
